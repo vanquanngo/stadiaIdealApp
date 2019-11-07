@@ -61,7 +61,6 @@ class LandingPage extends StatelessWidget {
                           size: AppSizes.heightMultiplier * 3,
                         ),
                         onTap: () {
-
                         },
                       )
                     ],
