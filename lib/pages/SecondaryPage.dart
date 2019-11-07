@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_stadia_app_concept/services/router.dart';
 import 'package:google_stadia_app_concept/services/navigation_service.dart';
 import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
@@ -50,7 +49,7 @@ class SecondaryPage extends StatelessWidget {
                                   size: AppSizes.heightMultiplier * 3,
                                 ),
                                 onTap: () {
-                                  locator<NavigationService>().goBack();
+                                  navigatorKey.currentState.pop();
                                 },
                               ),
                             ),
