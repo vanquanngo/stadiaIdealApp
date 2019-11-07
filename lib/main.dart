@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_stadia_app_concept/pages/LandingPage.dart';
+import 'package:google_stadia_app_concept/pages/SecondaryPage.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
 
 //void main() => runApp(DevicePreview(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
                   canvasColor: Colors.white,
                   primarySwatch: Colors.blue,
                   fontFamily: 'Oxygen'),
-              home: LandingPage(),
+              home: SecondaryPage(),
             );
           },
         );

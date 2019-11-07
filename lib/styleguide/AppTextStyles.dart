@@ -33,13 +33,13 @@ class AppTextStyles {
   );
 
   static TextStyle headingTwoTextStyle = TextStyle(
-    fontSize: AppSizes.heightMultiplier * 1.5,
+    fontSize: AppSizes.heightMultiplier * 1.7,
     color: Colors.grey.shade900,
     fontWeight: FontWeight.bold,
   );
 
   static TextStyle bodyTextStyle = TextStyle(
-    fontSize: AppSizes.heightMultiplier * 1.5,
+    fontSize: AppSizes.heightMultiplier * 1.7,
     color: Colors.grey.shade600,
   );
 

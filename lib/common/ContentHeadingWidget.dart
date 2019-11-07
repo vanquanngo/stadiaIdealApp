@@ -11,7 +11,8 @@ class ContentHeadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: marginVertical),
+      padding: EdgeInsets.only(
+          top: marginVertical * 1.4, bottom: marginVertical * 0.7),
       child: Text(
         heading,
         style: AppTextStyles.headingOneTextStyle,

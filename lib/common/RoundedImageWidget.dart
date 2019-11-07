@@ -7,7 +7,6 @@ import 'package:vector_math/vector_math_64.dart' as math;
 
 class RoundedImageWidget extends StatelessWidget {
   final isOnline;
-  final bool showRanking;
   final int ranking;
   final String imagePath;
   final double imageSize;
@@ -16,7 +15,6 @@ class RoundedImageWidget extends StatelessWidget {
   const RoundedImageWidget({
     Key key,
     this.isOnline = false,
-    this.showRanking = false,
     this.ranking,
     @required this.imagePath,
     this.name,
@@ -36,16 +34,17 @@ class RoundedImageWidget extends StatelessWidget {
               CustomPaint(
                 painter: RoundedImageBorder(isOnline: isOnline),
                 child: Container(
-                  height: imageSize,
                   child: ClipOval(
                     child: Image.asset(
                       imagePath,
                       fit: BoxFit.cover,
+                      width: imageSize,
+                      height: imageSize,
                     ),
                   ),
                 ),
               ),
-              if (showRanking)
+              if (ranking != null)
                 Positioned(
                   right: 0,
                   bottom: 0,

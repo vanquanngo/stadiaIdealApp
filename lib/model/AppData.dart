@@ -8,7 +8,15 @@ class AppData {
     FriendModel(
         name: "Jennie", imagePath: AppImages.friend_jeenie, isOnline: true),
     FriendModel(
-        name: "Gena", imagePath: AppImages.friend_michelle, isOnline: false),
+        name: "Gena", imagePath: AppImages.friend_gena, isOnline: false),
+    FriendModel(
+        name: "Michelle", imagePath: AppImages.friend_michelle, isOnline: true),
+    FriendModel(
+        name: "Trish", imagePath: AppImages.friend_trish, isOnline: false),
+    FriendModel(
+        name: "Jennie", imagePath: AppImages.friend_jeenie, isOnline: true),
+    FriendModel(
+        name: "Gena", imagePath: AppImages.friend_gena, isOnline: false),
     FriendModel(
         name: "Michelle", imagePath: AppImages.friend_michelle, isOnline: true),
     FriendModel(

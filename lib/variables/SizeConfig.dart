@@ -38,10 +38,10 @@ class AppSizes {
     AppSizes.heightMultiplier = _blockSizeVertical;
     widthMultiplier = _blockSizeHorizontal;
 
-    print("heightmuti $AppSizes.heightMultiplier");
     print("widthmuti $imageSizeMultiplier");
     print("width $screenWidth");
     print("height $screenHeight");
     print("isPotrait $isPortrait");
+    print("heightmuti $heightMultiplier");
   }
 }

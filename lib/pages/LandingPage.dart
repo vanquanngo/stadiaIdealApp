@@ -5,6 +5,7 @@ import 'package:google_stadia_app_concept/common/ContentHeadingWidget.dart';
 import 'package:google_stadia_app_concept/common/LastPlayerGameTileWidget.dart';
 import 'package:google_stadia_app_concept/common/RoundedImageWidget.dart';
 import 'package:google_stadia_app_concept/model/AppData.dart';
+import 'package:google_stadia_app_concept/pages/SecondaryPage.dart';
 import 'package:google_stadia_app_concept/styleguide/AppColors.dart';
 import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
@@ -37,10 +38,18 @@ class LandingPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Icon(
-                        Icons.menu,
-                        color: AppColors.primaryTextColor,
-                        size: AppSizes.heightMultiplier * 3,
+                      InkWell(
+                        child: Icon(
+                          Icons.menu,
+                          color: AppColors.primaryTextColor,
+                          size: AppSizes.heightMultiplier * 3,
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SecondaryPage()));
+                        },
                       ),
                       Icon(
                         Icons.search,
@@ -65,7 +74,6 @@ class LandingPage extends StatelessWidget {
                               RoundedImageWidget(
                                 imagePath: AppImages.player1,
                                 isOnline: true,
-                                showRanking: true,
                                 ranking: 12,
                                 imageSize: AppSizes.heightMultiplier * 7.3,
                               ),
@@ -129,13 +137,31 @@ class LandingPage extends StatelessWidget {
                       ),
                       ContentHeadingWidget(
                         heading: "Last played games",
-                        marginVertical: AppSizes.heightMultiplier * 1.5,
+                        marginVertical: AppSizes.heightMultiplier * 2,
                       ),
                       for (var i = 0; i < AppData.lastPlayedGames.length; i++)
                         LastPlayerGameTileWidget(
                           lastPlayedGame: AppData.lastPlayedGames[i],
                           gameProgress: AppData.lastPlayedGames[i].gameProgress,
-                        )
+                        ),
+                      ContentHeadingWidget(
+                        heading: "Friends",
+                        marginVertical: AppSizes.heightMultiplier * 2,
+                      ),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget>[
+                      for (var i = 0; i < AppData.friends.length; i++)
+                        RoundedImageWidget(
+                          imagePath: AppData.friends[i].imagePath,
+                          isOnline: AppData.friends[i].isOnline,
+                          name: AppData.friends[i].name,
+                          imageSize: AppSizes.heightMultiplier * 7.3,
+                        ),
                     ],
                   ),
                 ),
