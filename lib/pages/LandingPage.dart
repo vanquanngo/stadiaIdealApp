@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_stadia_app_concept/common/ContentHeadingWidget.dart';
 import 'package:google_stadia_app_concept/common/LastPlayerGameTileWidget.dart';
 import 'package:google_stadia_app_concept/common/RoundedImageWidget.dart';
-import 'package:google_stadia_app_concept/localizations/AppLocalizations.dart';
+import 'package:google_stadia_app_concept/constant/routes.dart';
 import 'package:google_stadia_app_concept/model/AppData.dart';
-import 'package:google_stadia_app_concept/pages/SecondaryPage.dart';
+import 'package:google_stadia_app_concept/services/router.dart';
+import 'package:google_stadia_app_concept/services/i18n.dart';
+import 'package:google_stadia_app_concept/services/navigation_service.dart';
 import 'package:google_stadia_app_concept/styleguide/AppColors.dart';
 import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
@@ -48,10 +50,7 @@ class LandingPage extends StatelessWidget {
                           size: AppSizes.heightMultiplier * 3,
                         ),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SecondaryPage()));
+                          locator<NavigationService>().navigateTo(Routes.SecondaryPage);
                         },
                       ),
                       InkWell(

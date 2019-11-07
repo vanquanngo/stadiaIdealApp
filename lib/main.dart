@@ -1,15 +1,18 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_stadia_app_concept/constant/routes.dart';
 import 'package:google_stadia_app_concept/localizations/AppLocalizations.dart';
-import 'package:google_stadia_app_concept/pages/LandingPage.dart';
-import 'package:google_stadia_app_concept/pages/SecondaryPage.dart';
+import 'package:google_stadia_app_concept/services/router.dart';
+import 'package:google_stadia_app_concept/services/navigation_service.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
 
 //void main() => runApp(DevicePreview(
 //      builder: (context) => MyApp(),
 //    ));
-void main() => runApp(MyApp());
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -44,7 +47,9 @@ class MyApp extends StatelessWidget {
                   canvasColor: Colors.white,
                   primarySwatch: Colors.blue,
                   fontFamily: 'Oxygen'),
-              home: LandingPage(),
+              navigatorKey: locator<NavigationService>().navigatorKey,
+              onGenerateRoute: generateRoute,
+              initialRoute: Routes.LandingPage,
             );
           },
         );

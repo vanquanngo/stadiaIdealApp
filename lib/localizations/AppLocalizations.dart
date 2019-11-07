@@ -64,7 +64,3 @@ class _AppLocalizationsDelegate
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
-
-String i18n(String key) {
-  return AppLocalizations.of(GlobalVariables.context).translate(key);
-}
