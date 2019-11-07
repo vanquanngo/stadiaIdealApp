@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_stadia_app_concept/common/ContentHeadingWidget.dart';
-import 'package:google_stadia_app_concept/common/LastPlayerGameTileWidget.dart';
-import 'package:google_stadia_app_concept/common/RoundedImageWidget.dart';
 import 'package:google_stadia_app_concept/constant/routes.dart';
 import 'package:google_stadia_app_concept/model/AppData.dart';
 import 'package:google_stadia_app_concept/services/i18n.dart';
@@ -13,6 +10,9 @@ import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
 import 'package:google_stadia_app_concept/variables/GlobalVariables.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
+import 'package:google_stadia_app_concept/widgets/ContentHeadingWidget.dart';
+import 'package:google_stadia_app_concept/widgets/LastPlayerGameTileWidget.dart';
+import 'package:google_stadia_app_concept/widgets/RoundedImageWidget.dart';
 
 class LandingPage extends StatelessWidget {
   @override

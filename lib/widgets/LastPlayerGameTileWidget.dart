@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_stadia_app_concept/common/GameProgressWidget.dart';
 import 'package:google_stadia_app_concept/model/LastPlayedGameModel.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
+import 'package:google_stadia_app_concept/widgets/GameProgressWidget.dart';
 
 class LastPlayerGameTileWidget extends StatelessWidget {
   final LastPlayedGameModel lastPlayedGame;
