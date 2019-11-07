@@ -4,16 +4,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_stadia_app_concept/common/ContentHeadingWidget.dart';
 import 'package:google_stadia_app_concept/common/LastPlayerGameTileWidget.dart';
 import 'package:google_stadia_app_concept/common/RoundedImageWidget.dart';
+import 'package:google_stadia_app_concept/localizations/AppLocalizations.dart';
 import 'package:google_stadia_app_concept/model/AppData.dart';
 import 'package:google_stadia_app_concept/pages/SecondaryPage.dart';
 import 'package:google_stadia_app_concept/styleguide/AppColors.dart';
 import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
+import 'package:google_stadia_app_concept/variables/GlobalVariables.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    GlobalVariables.init(context);
     final logoHeight = AppSizes.screenHeight * 0.4;
 
     return Scaffold(
@@ -51,10 +54,15 @@ class LandingPage extends StatelessWidget {
                                   builder: (context) => SecondaryPage()));
                         },
                       ),
-                      Icon(
-                        Icons.search,
-                        color: AppColors.primaryTextColor,
-                        size: AppSizes.heightMultiplier * 3,
+                      InkWell(
+                        child: Icon(
+                          Icons.search,
+                          color: AppColors.primaryTextColor,
+                          size: AppSizes.heightMultiplier * 3,
+                        ),
+                        onTap: () {
+
+                        },
                       )
                     ],
                   ),
@@ -83,7 +91,7 @@ class LandingPage extends StatelessWidget {
                                 child: RichText(
                                   text: TextSpan(children: [
                                     TextSpan(
-                                        text: "Hello",
+                                        text: i18n("hello"),
                                         style: AppTextStyles.userNameTextStyle),
                                     TextSpan(
                                       text: '\n',
@@ -117,7 +125,7 @@ class LandingPage extends StatelessWidget {
                                 Row(
                                   children: <Widget>[
                                     Text(
-                                      "HOURS PLAYED",
+                                      i18n("hours_played"),
                                       style: AppTextStyles
                                           .hoursPlayedLabelTextStyle,
                                     ),
@@ -127,7 +135,7 @@ class LandingPage extends StatelessWidget {
                                   height: AppSizes.heightMultiplier * 0.5,
                                 ),
                                 Text(
-                                  "297 Hours",
+                                  "297 ${i18n("hours")}",
                                   style: AppTextStyles.hoursPlayedTextStyle,
                                 )
                               ],
@@ -136,7 +144,7 @@ class LandingPage extends StatelessWidget {
                         ),
                       ),
                       ContentHeadingWidget(
-                        heading: "Last played games",
+                        heading: i18n("last_played_games"),
                         marginVertical: AppSizes.heightMultiplier * 2,
                       ),
                       for (var i = 0; i < AppData.lastPlayedGames.length; i++)
@@ -145,7 +153,7 @@ class LandingPage extends StatelessWidget {
                           gameProgress: AppData.lastPlayedGames[i].gameProgress,
                         ),
                       ContentHeadingWidget(
-                        heading: "Friends",
+                        heading: i18n("friends"),
                         marginVertical: AppSizes.heightMultiplier * 2,
                       ),
                     ],
