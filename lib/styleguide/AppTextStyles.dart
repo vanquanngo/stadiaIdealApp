@@ -43,12 +43,21 @@ class AppTextStyles {
     color: Colors.grey.shade600,
   );
 
-  static TextStyle newGameTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700);
+  static TextStyle newGameTextStyle = TextStyle(
+    fontSize: AppSizes.heightMultiplier * 1.7,
+    color: Colors.white,
+    fontWeight: FontWeight.w700,
+  );
 
-  static TextStyle newGameNameTextStyle =
-      TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700);
+  static TextStyle newGameNameTextStyle = TextStyle(
+    fontSize: AppSizes.heightMultiplier * 2.5,
+    color: Colors.white,
+    fontWeight: FontWeight.w700,
+  );
 
   static TextStyle playWhiteTextStyle = TextStyle(
-      fontSize: 14, color: AppColors.firstColor, fontWeight: FontWeight.w700);
+    fontSize: AppSizes.heightMultiplier * 1.7,
+    color: AppColors.firstColor,
+    fontWeight: FontWeight.w700,
+  );
 }
