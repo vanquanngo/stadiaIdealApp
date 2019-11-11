@@ -1,3 +1,4 @@
+import 'package:google_stadia_app_concept/model/GameOfFriendsModal.dart';
 import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 
 import 'FriendsModel.dart';
@@ -44,5 +45,11 @@ class AppData {
         hoursPlayed: 3,
         gameProgress: 0.10,
         imagePath: AppImages.game_no_mans_sky),
+  ];
+  static final List<GameOfFriendsModal> gamesOfFriends = [
+    GameOfFriendsModal(imagePath: AppImages.game_assassin),
+    GameOfFriendsModal(imagePath: AppImages.game_dead_cells),
+    GameOfFriendsModal(imagePath: AppImages.game_stardew),
+    GameOfFriendsModal(imagePath: AppImages.game_no_mans_sky),
   ];
 }

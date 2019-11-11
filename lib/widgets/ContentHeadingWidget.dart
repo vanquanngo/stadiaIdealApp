@@ -6,7 +6,7 @@ class ContentHeadingWidget extends StatelessWidget {
   final double marginVertical;
 
   const ContentHeadingWidget(
-      {Key key, @required this.heading, this.marginVertical})
+      {Key key, @required this.heading, @required this.marginVertical})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

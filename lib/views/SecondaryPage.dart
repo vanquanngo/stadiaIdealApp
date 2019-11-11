@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_stadia_app_concept/model/AppData.dart';
 import 'package:google_stadia_app_concept/services/i18n.dart';
 import 'package:google_stadia_app_concept/services/navigation_service.dart';
 import 'package:google_stadia_app_concept/styleguide/AppColors.dart';
@@ -7,6 +8,8 @@ import 'package:google_stadia_app_concept/styleguide/AppImages.dart';
 import 'package:google_stadia_app_concept/styleguide/AppTextStyles.dart';
 import 'package:google_stadia_app_concept/variables/GlobalVariables.dart';
 import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
+import 'package:google_stadia_app_concept/widgets/ContentHeadingWidget.dart';
+import 'package:google_stadia_app_concept/widgets/PopularWithFriendsWidget.dart';
 
 class SecondaryPage extends StatelessWidget {
   @override
@@ -128,16 +131,144 @@ class SecondaryPage extends StatelessWidget {
           ),
           Expanded(
             flex: 3,
-            child: Container(
-              color: Colors.greenAccent,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.heightMultiplier * 2),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  ContentHeadingWidget(
+                    heading: "Popular with friends",
+                    marginVertical: AppSizes.heightMultiplier * 2,
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: <Widget>[
+                          for (var i = 0;
+                              i < AppData.gamesOfFriends.length;
+                              i++)
+                            PopularWithFriendsWidget(
+                              imagePath: AppData.gamesOfFriends[i].imagePath,
+                            )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 3,
-            child: Container(
-              color: Colors.deepOrange,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.heightMultiplier * 2),
+                  child: ContentHeadingWidget(
+                    heading: "Continue playing",
+                    marginVertical: AppSizes.heightMultiplier,
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Stack(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: AppSizes.heightMultiplier * 2,
+                          right: AppSizes.heightMultiplier * 2,
+                          top: AppSizes.heightMultiplier,
+                          bottom: AppSizes.heightMultiplier * 2,
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              gradient: AppColors.appGradient,
+                              borderRadius: BorderRadius.circular(
+                                  AppSizes.heightMultiplier * 1.5)),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: AppSizes.heightMultiplier),
+                            child: Row(
+                              children: <Widget>[
+                                Stack(
+                                  children: <Widget>[
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(
+                                              AppSizes.heightMultiplier)),
+                                      child: Image.asset(
+                                        AppData.lastPlayedGames[0].imagePath,
+                                        height: AppSizes.heightMultiplier * 15,
+                                        width: AppSizes.heightMultiplier * 10,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: AppSizes.heightMultiplier,
+                                      right: AppSizes.heightMultiplier,
+                                      top: 0,
+                                      bottom: 0,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.white),
+                                        child: Icon(
+                                          Icons.play_arrow,
+                                          color: Colors.red,
+                                          size: AppSizes.heightMultiplier * 3,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal:
+                                          AppSizes.heightMultiplier * 1.5),
+                                  child: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                        maxWidth:
+                                            AppSizes.heightMultiplier * 20),
+                                    child: RichText(
+                                      text: TextSpan(children: [
+                                        TextSpan(
+                                            text:
+                                                AppData.lastPlayedGames[0].name,
+                                            style: AppTextStyles
+                                                .newGameNameTextStyle),
+                                        TextSpan(text: '\n'),
+                                        TextSpan(
+                                            text:
+                                                "${AppData.lastPlayedGames[0].hoursPlayed} hours played",
+                                            style:
+                                                AppTextStyles.newGameTextStyle)
+                                      ]),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            height: 40,
+                            width: 20,
+                            color: Colors.grey,
+                          ))
+                    ],
+                  ),
+                )
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
