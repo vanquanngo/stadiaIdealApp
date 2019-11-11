@@ -25,7 +25,7 @@ class SecondaryPage extends StatelessWidget {
                 Image.asset(
                   AppImages.game_sekiro,
                   height: AppSizes.heightMultiplier * 40,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.contain,
                 ),
                 Container(
                   color: Colors.grey.withOpacity(0.5),
@@ -175,95 +175,103 @@ class SecondaryPage extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 1,
-                  child: Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: AppSizes.heightMultiplier * 2,
-                          right: AppSizes.heightMultiplier * 2,
-                          top: AppSizes.heightMultiplier,
-                          bottom: AppSizes.heightMultiplier * 2,
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              gradient: AppColors.appGradient,
-                              borderRadius: BorderRadius.circular(
-                                  AppSizes.heightMultiplier * 1.5)),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: AppSizes.heightMultiplier),
-                            child: Row(
-                              children: <Widget>[
-                                Stack(
-                                  children: <Widget>[
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(
-                                              AppSizes.heightMultiplier)),
-                                      child: Image.asset(
-                                        AppData.lastPlayedGames[0].imagePath,
-                                        height: AppSizes.heightMultiplier * 15,
-                                        width: AppSizes.heightMultiplier * 10,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: AppSizes.heightMultiplier,
-                                      right: AppSizes.heightMultiplier,
-                                      top: 0,
-                                      bottom: 0,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.white),
-                                        child: Icon(
-                                          Icons.play_arrow,
-                                          color: Colors.red,
-                                          size: AppSizes.heightMultiplier * 3,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: AppSizes.heightMultiplier * 2,
+                      right: AppSizes.heightMultiplier * 2,
+                      top: AppSizes.heightMultiplier,
+                      bottom: AppSizes.heightMultiplier * 3,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient: AppColors.appGradient,
+                          borderRadius: BorderRadius.circular(
+                              AppSizes.heightMultiplier * 1.5)),
+                      child: Stack(
+                        overflow: Overflow.visible,
+                        children: <Widget>[
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: AppSizes.heightMultiplier),
+                              child: Row(
+                                children: <Widget>[
+                                  Stack(
+                                    children: <Widget>[
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                                AppSizes.heightMultiplier)),
+                                        child: Image.asset(
+                                          AppData.lastPlayedGames[0].imagePath,
+                                          height: AppSizes.heightMultiplier * 15,
+                                          width: AppSizes.heightMultiplier * 10,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppSizes.heightMultiplier * 1.5),
-                                  child: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                        maxWidth:
-                                            AppSizes.heightMultiplier * 20),
-                                    child: RichText(
-                                      text: TextSpan(children: [
-                                        TextSpan(
-                                            text:
-                                                AppData.lastPlayedGames[0].name,
-                                            style: AppTextStyles
-                                                .newGameNameTextStyle),
-                                        TextSpan(text: '\n'),
-                                        TextSpan(
-                                            text:
-                                                "${AppData.lastPlayedGames[0].hoursPlayed} hours played",
-                                            style:
-                                                AppTextStyles.newGameTextStyle)
-                                      ]),
-                                    ),
+                                      Positioned(
+                                        left: AppSizes.heightMultiplier *2,
+                                        right: AppSizes.heightMultiplier *2,
+                                        top: 0,
+                                        bottom: 0,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Icon(
+                                            Icons.play_arrow,
+                                            color: Colors.red,
+                                            size: AppSizes.heightMultiplier * 3,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                )
-                              ],
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            AppSizes.heightMultiplier * 1.5),
+                                    child: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                          maxWidth:
+                                              AppSizes.heightMultiplier * 30),
+                                      child: RichText(
+                                        text: TextSpan(children: [
+                                          TextSpan(
+                                              text:
+                                                  AppData.lastPlayedGames[0].name,
+                                              style: AppTextStyles
+                                                  .newGameNameTextStyle),
+                                          TextSpan(text: '\n'),
+                                          TextSpan(
+                                              text:
+                                                  "${AppData.lastPlayedGames[0].hoursPlayed} hours played",
+                                              style:
+                                                  AppTextStyles.newGameTextStyle)
+                                        ]),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                          Positioned(
+                            bottom: -AppSizes.heightMultiplier * 2,
+                            right: 0,
+                            child: Container(
+                              height: AppSizes.heightMultiplier * 6,
+                              width: AppSizes.heightMultiplier * 6,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                backgroundColor: Colors.white,
+                                child: Icon(Icons.search, size: AppSizes.heightMultiplier * 3 , color: Colors.red,),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
-                      Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                            height: 40,
-                            width: 20,
-                            color: Colors.grey,
-                          ))
-                    ],
+                    ),
                   ),
                 )
               ],

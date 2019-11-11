@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Oxygen'),
               navigatorKey: navigatorKey,
               onGenerateRoute: generateRoute,
-              initialRoute: Routes.SecondaryPage,
+              initialRoute: Routes.LandingPage,
             );
           },
         );
