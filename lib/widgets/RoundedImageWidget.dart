@@ -23,55 +23,58 @@ class RoundedImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          height: imageSize + AppSizes.heightMultiplier,
-          child: Stack(
-            children: <Widget>[
-              CustomPaint(
-                painter: RoundedImageBorder(isOnline: isOnline),
-                child: Container(
-                  child: ClipOval(
-                    child: Image.asset(
-                      imagePath,
-                      fit: BoxFit.cover,
-                      width: imageSize,
-                      height: imageSize,
-                    ),
-                  ),
-                ),
-              ),
-              if (ranking != null)
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: ClipOval(
-                    child: Container(
-                      height: AppSizes.heightMultiplier * 3.5,
-                      width: AppSizes.heightMultiplier * 3.5,
-                      decoration:
-                          BoxDecoration(gradient: AppColors.appGradient),
-                      child: Center(
-                        child: Text(
-                          ranking.toString(),
-                          style: AppTextStyles.rankTextStyle,
-                        ),
+    return Padding(
+      padding: EdgeInsets.only(top: AppSizes.heightMultiplier),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            height: imageSize + AppSizes.heightMultiplier,
+            child: Stack(
+              children: <Widget>[
+                CustomPaint(
+                  painter: RoundedImageBorder(isOnline: isOnline),
+                  child: Container(
+                    child: ClipOval(
+                      child: Image.asset(
+                        imagePath,
+                        fit: BoxFit.cover,
+                        width: imageSize,
+                        height: imageSize,
                       ),
                     ),
                   ),
                 ),
-            ],
+                if (ranking != null)
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: ClipOval(
+                      child: Container(
+                        height: AppSizes.heightMultiplier * 3.5,
+                        width: AppSizes.heightMultiplier * 3.5,
+                        decoration:
+                            BoxDecoration(gradient: AppColors.appGradient),
+                        child: Center(
+                          child: Text(
+                            ranking.toString(),
+                            style: AppTextStyles.rankTextStyle,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
-        ),
-        if (name != null)
-          Text(
-            name,
-            style: AppTextStyles.bodyTextStyle,
-          )
-      ],
+          if (name != null)
+            Text(
+              name,
+              style: AppTextStyles.bodyTextStyle,
+            )
+        ],
+      ),
     );
   }
 }
