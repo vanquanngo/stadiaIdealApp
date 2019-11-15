@@ -20,17 +20,8 @@ class _GameProgressWidgetState extends State<GameProgressWidget>
   void initState() {
     super.initState();
     controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
-    progressAnimation = Tween<double>(
-            begin: 0,
-            end: ((AppSizes.isPortrait
-                        ? AppSizes.screenWidth - AppSizes.heightMultiplier * 6
-                        : AppSizes.screenHeight -
-                            AppSizes.heightMultiplier * 6) *
-                    0.33) *
-                widget.gameProgress)
-        .animate(controller);
-    Future.delayed(Duration(milliseconds: 700), () {
+        vsync: this, duration: const Duration(milliseconds: 2000));
+    Future.delayed(Duration(milliseconds: 1000), () {
       controller.forward();
     });
   }
@@ -43,36 +34,52 @@ class _GameProgressWidgetState extends State<GameProgressWidget>
 
   @override
   Widget build(BuildContext context) {
+    progressAnimation = Tween<double>(
+        begin: 0,
+        end: ((AppSizes.isPortrait
+            ? AppSizes.screenWidth - AppSizes.heightMultiplier * 6
+            : AppSizes.screenHeight -
+            AppSizes.heightMultiplier * 6) *
+            0.33) *
+            widget.gameProgress)
+        .animate(controller);
     final width = (AppSizes.isPortrait
             ? AppSizes.screenWidth - AppSizes.heightMultiplier * 6
             : AppSizes.screenHeight - AppSizes.heightMultiplier * 6) *
         0.33;
-
     return AnimatedBuilder(
       animation: progressAnimation,
       builder: (context, widget) {
-        return Container(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                width: width,
-                height: AppSizes.heightMultiplier * 1.2,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(AppSizes.heightMultiplier * 0.5)),
-                    border: Border.all(
-                        color: AppColors.tertiaryTextColor,
-                        width: AppSizes.heightMultiplier * 0.1)),
-              ),
-              Container(
-                width: progressAnimation.value,
-                height: AppSizes.heightMultiplier * 1.2,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(AppSizes.heightMultiplier * 0.5)),
-                    gradient: AppColors.appGradient),
-              ),
-            ],
+        return GestureDetector(
+          onTap: () {
+            controller.reverse();
+          },
+          onDoubleTap: () {
+            controller.forward();
+          },
+          child: Container(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  width: width,
+                  height: AppSizes.heightMultiplier * 1.2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(AppSizes.heightMultiplier * 0.5)),
+                      border: Border.all(
+                          color: AppColors.tertiaryTextColor,
+                          width: AppSizes.heightMultiplier * 0.1)),
+                ),
+                Container(
+                  width: progressAnimation.value,
+                  height: AppSizes.heightMultiplier * 1.2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(AppSizes.heightMultiplier * 0.5)),
+                      gradient: AppColors.appGradient),
+                ),
+              ],
+            ),
           ),
         );
       },
