@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_stadia_app_concept/constant/routes.dart';
 import 'package:google_stadia_app_concept/localizations/AppLocalizations.dart';
@@ -9,7 +10,8 @@ import 'package:google_stadia_app_concept/variables/SizeConfig.dart';
 //void main() => runApp(DevicePreview(
 //      builder: (context) => MyApp(),
 //    ));
-void main() {
+Future main() async {
+  await FlutterConfig.loadEnvVariables();
   runApp(MyApp());
 }
 

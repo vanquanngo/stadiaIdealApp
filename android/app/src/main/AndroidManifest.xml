@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="google_stadia_app_concept"
+        android:label="@string/APP_NAME"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
