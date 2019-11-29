@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "849079931048",
+    "firebase_url": "https://flutter-stadia.firebaseio.com",
+    "project_id": "flutter-stadia",
+    "storage_bucket": "flutter-stadia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849079931048:android:3b39a599e2a7f75349329d",
+        "android_client_info": {
+          "package_name": "com.example.google_stadia_app_concept_staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849079931048-afgshmma37psgf4t8t4eslgjsvli80is.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAOKqZl4hOa7xXGjG1UDEnO5D4Thy3Rgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849079931048-afgshmma37psgf4t8t4eslgjsvli80is.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
